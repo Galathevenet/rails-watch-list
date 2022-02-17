@@ -6,6 +6,9 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.new(params_bookmark)
+    @list = List.find(params[:list_id])
+    
+
   end
 
   def params_bookmark
