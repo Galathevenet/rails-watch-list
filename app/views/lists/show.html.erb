@@ -1,4 +1,4 @@
-<h1><%= @list.name %></h1>
+<h1><%= @list.name %></h1> <p>| <%= link_to "Add a movie", new_list_bookmark_path(@list) %></p>
 
 <ul>
 <% @list.bookmarks.each do |bookmark| %>
