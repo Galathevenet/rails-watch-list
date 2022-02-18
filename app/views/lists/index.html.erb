@@ -6,8 +6,15 @@
 </div>
 
 
-<ul>
+
 <% @lists.each do |list| %>
-  <li><%= link_to list.name, list_path(list) %></li>
+  <% if list.photo.attached? %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
+      <%= link_to list.name, list_path(list) %>
+    </div>
+  <% else %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_tag("uboputwtc7ol1yb5qfh0", width: 400, height: 300, crop: :fill) %>')">
+      <%= link_to list.name, list_path(list) %>
+    </div>
+  <% end %>
 <% end %>
-</ul>
