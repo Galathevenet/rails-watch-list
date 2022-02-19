@@ -4,13 +4,15 @@
 <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "btn btn-secondary text-center" %></p>
 </div>
 
-<% @list.bookmarks.each do |bookmark| %>
-<div class="card-product">
-  <img src="<%= bookmark.movie.poster_url %>" />
-  <div class="card-product-infos">
-    <h2><%= bookmark.movie.title %></h2> <%= bookmark.movie.rating%>
-    <p><%= bookmark.movie.overview %></p>
-    <p><strong><%= bookmark.comment %></strong></p>
+<div class="cards-container">
+  <% @list.bookmarks.each do |bookmark| %>
+  <div class="card-product">
+    <img src="<%= bookmark.movie.poster_url %>" />
+    <div class="card-product-infos">
+      <h2><%= bookmark.movie.title %></h2> <%= bookmark.movie.rating%>
+      <p><%= bookmark.movie.overview %></p>
+      <p><strong><%= bookmark.comment %></strong></p>
+    </div>
   </div>
+  <% end %>
 </div>
-<% end %>
